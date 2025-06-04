@@ -1,0 +1,119 @@
+<!-- chat-widget.component.html -->
+<div class="chat-widget-container">
+  <!-- Chat Button -->
+  <button class="chat-toggle-button" (click)="toggleChat()" [class.open]="isOpen">
+    <span *ngIf="!isOpen" class="material-icons">chat</span>
+    <span *ngIf="isOpen" class="material-icons">keyboard_arrow_down</span>
+  </button>
+
+  <!-- Chat Window -->
+  <div class="chat-window" [class.open]="isOpen">
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="chat-title">
+        <div class="bot-avatar"></div>
+        <h3>Support par chat</h3>
+      </div>
+      <div class="header-actions">
+        <button class="action-button minimize-button" (click)="toggleChat()">
+          <span class="material-icons">keyboard_arrow_down</span>
+        </button>
+      </div>
+    </div>
+    <!-- Messages Area -->
+    <div class="chat-messages" #scrollMe>
+      <div *ngFor="let message of messages"
+           class="message"
+           [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
+        <div class="message-content">{{ message.content }}</div>
+
+        <!-- Feedback component for bot messages only -->
+        <div *ngIf="message.sender === 'bot'" class="message-feedback">
+          <div class="feedback-question" *ngIf="!message.feedbackGiven">
+            <span>Cette réponse vous a-t-elle été utile?</span>
+            <div class="feedback-buttons">
+              <button class="feedback-btn thumbs-up" (click)="giveFeedback(message, true)">
+                <span class="material-icons">thumb_up</span>
+              </button>
+              <button class="feedback-btn thumbs-down" (click)="giveFeedback(message, false)">
+                <span class="material-icons">thumb_down</span>
+              </button>
+            </div>
+          </div>
+          <div *ngIf="message.feedbackGiven" class="feedback-result">
+            <span class="material-icons feedback-icon" [ngClass]="{'positive': message.feedbackPositive, 'negative': !message.feedbackPositive}">
+              {{ message.feedbackPositive ? 'check_circle' : 'info' }}
+            </span>
+            <span class="feedback-text">{{ message.feedbackPositive ? 'Merci pour votre retour!' : 'Merci pour votre retour. Nous nous efforçons de nous améliorer.' }}</span>
+          </div>
+
+          <!-- Optional detailed feedback form that appears when negative feedback is given -->
+          <div *ngIf="message.feedbackGiven && !message.feedbackPositive && !message.detailedFeedbackGiven" class="detailed-feedback">
+            <textarea
+              placeholder="Comment pouvons-nous améliorer cette réponse?"
+              [(ngModel)]="message.detailedFeedback"
+              class="detailed-feedback-input"></textarea>
+            <div class="detailed-feedback-actions">
+              <button class="submit-feedback-btn" (click)="submitDetailedFeedback(message)">Envoyer</button>
+              <button class="skip-feedback-btn" (click)="skipDetailedFeedback(message)">Ignorer</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related FAQs Section with Nested Accordion -->
+        <div *ngIf="message.relatedFaqs && message.relatedFaqs.length > 0" class="related-faqs-accordion">
+          <div class="accordion-toggle" (click)="toggleAccordion(message)">
+            <span>Questions similaires ({{ message.relatedFaqs.length }})</span>
+            <span class="material-icons">
+              {{ message.isAccordionOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+            </span>
+          </div>
+
+          <div class="accordion-content" [class.open]="message.isAccordionOpen">
+            <div *ngFor="let faq of message.relatedFaqs; let i = index" class="faq-item">
+              <!-- FAQ Question (clickable to expand/collapse) -->
+              <div class="faq-question" (click)="toggleFaqAnswer(message, i)">
+                <div class="faq-question-header">
+                  <span class="material-icons faq-icon">help_outline</span>
+                  <span class="question-text">{{ faq.question }}</span>
+                  <span class="material-icons expand-icon">
+                    {{ faq.isOpen ? 'expand_less' : 'expand_more' }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- FAQ Answer (hidden by default, shown when expanded) -->
+              <div class="faq-answer" [class.open]="faq.isOpen">
+                {{ faq.reponse }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="message-timestamp">{{ message.timestamp | date:'shortTime' }}</div>
+      </div>
+
+      <!-- Loading indicator -->
+      <div *ngIf="isLoading" class="bot-typing">
+        <div class="typing-indicator">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-area">
+      <input
+        type="text"
+        placeholder="Écrivez votre question..."
+        [(ngModel)]="newMessage"
+        (keyup.enter)="sendMessage()"
+        [disabled]="isLoading">
+      <button class="send-button" (click)="sendMessage()" [disabled]="isLoading || !newMessage.trim()">
+        <span class="material-icons">send</span>
+      </button>
+    </div>
+  </div>
+</div>

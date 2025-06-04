@@ -1,0 +1,122 @@
+<div class="faq-management-container">
+  <h1>FAQ Management</h1>
+
+  <div *ngIf="loading" class="loading">
+    Loading FAQ items...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <!-- Actions Section -->
+  <div class="actions-section">
+    <button class="add-button" (click)="openCreateForm()">Add New FAQ Item</button>
+
+    <div class="search-container">
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        placeholder="Search FAQ items..."
+        (input)="applyFilters()"
+        class="search-input">
+      <button class="reset-button" (click)="resetFilters()">Reset</button>
+    </div>
+  </div>
+
+  <!-- FAQ Items List -->
+  <div class="faq-items-section">
+    <div *ngIf="faqItems.length === 0" class="no-data">
+      No FAQ items found.
+    </div>
+
+    <table *ngIf="faqItems.length > 0" class="faq-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Question</th>
+          <th>Response</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let faqItem of faqItems">
+          <td>{{ faqItem.id }}</td>
+          <td>{{ faqItem.question }}</td>
+          <td>{{ faqItem.reponse }}</td>
+          <td class="actions">
+            <button class="edit-button" (click)="openEditForm(faqItem)">Edit</button>
+            <button class="delete-button" (click)="deleteFaqItem(faqItem.id!)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div *ngIf="totalPages > 1" class="pagination">
+      <button
+        [disabled]="currentPage === 1"
+        (click)="setPage(currentPage - 1)"
+        class="page-button">
+        &laquo; Previous
+      </button>
+
+      <button
+        *ngFor="let page of getPages()"
+        [class.active]="page === currentPage"
+        (click)="setPage(page)"
+        class="page-button">
+        {{ page }}
+      </button>
+
+      <button
+        [disabled]="currentPage === totalPages"
+        (click)="setPage(currentPage + 1)"
+        class="page-button">
+        Next &raquo;
+      </button>
+    </div>
+  </div>
+
+  <!-- Create/Edit Form Modal -->
+  <div *ngIf="showForm" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>{{ formMode === 'create' ? 'Create New FAQ Item' : 'Edit FAQ Item' }}</h2>
+        <button class="close-button" (click)="closeForm()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="question">Question:</label>
+          <textarea
+            id="question"
+            [(ngModel)]="currentFaqItem.question"
+            placeholder="Enter the question"
+            required
+            rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="reponse">Response:</label>
+          <textarea
+            id="reponse"
+            [(ngModel)]="currentFaqItem.reponse"
+            placeholder="Enter the response"
+            required
+            rows="5"></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="cancel-button" (click)="closeForm()">Cancel</button>
+        <button
+          class="submit-button"
+          [disabled]="!currentFaqItem.question || !currentFaqItem.reponse"
+          (click)="submitForm()">
+          {{ formMode === 'create' ? 'Create' : 'Update' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

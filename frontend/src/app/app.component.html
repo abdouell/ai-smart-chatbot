@@ -1,0 +1,21 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">AI FAQ Chatbot</a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" routerLink="/chat" routerLinkActive="active">Chat</a>
+        <a class="navbar-item" routerLink="/faq" routerLinkActive="active">FAQ</a>
+        <a class="navbar-item" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a class="navbar-item" routerLink="/faq-management" routerLinkActive="active">FAQ Management</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container main-content">
+  <router-outlet></router-outlet>
+</div>

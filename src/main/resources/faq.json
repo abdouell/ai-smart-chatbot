@@ -1,0 +1,232 @@
+[
+  {
+    "question": "Qu'en est-il pour les employés lorsqu'on dépasse les 30 jours de salaire garantis et que la personne n'est plus payée par l'ASBL ? Doit-on toujours mettre cette personne malade en demande de subsides plus un commentaire en précisant qu'il la remplace ou mettre directement la personne qui la remplace ?",
+    "reponse": "Au-delà du mois de salaire garanti, il est préférable de renseigner la personne qui remplace le titulaire absent. Même si le remplaçant a moins d'ancienneté, le subside intégral est plus avantageux que le subside partiel au nom du titulaire. Si le remplacement est partiel, indiquez toutes les données salariales des remplaçants. En l'absence de remplacement, le subside partiel du titulaire pourra être utilisé en compensation, mais il est moins intéressant. Il est recommandé de renseigner le personnel surnuméraire s'il y en a, à condition qu'il ne soit pas sous contrat Activa ou Maribel. Bien évidemment, vous avez tout intérêt à renseigner la personne qui remplace parce que même si elle compte moins d'années d'ancienneté que la titulaire, le subside intégral est plus intéressant que le subside partiel au nom de la titulaire."
+  },
+  {
+    "question": "À quoi correspond le subside partiel titulaire ?",
+    "reponse": "Le subside partiel correspond aux éléments pris en compte dans le calcul du pécule de vacances et de la prime de fin d'année. Il est nettement moins élevé que le subside intégral. Le pécule de vacances et la prime de fin d'année sont inclus dans les forfaits mensuels, et le subside partiel ne couvre que cette petite partie en fait le subside partiel, donc tiens compte, donc toutes les absences qui sont assimilées au calcul du pécule de vacances et de la prime de fin d'année. Donc évidemment le subside est bien moindre pour le subside partiel que pour le subside intégral."
+  },
+  {
+    "question": "Si une personne travaille à 100% mais qu'on ne demande que 40% en subvention, faut-il calculer soi-même le salaire ou est-ce calculé par le gestionnaire ?",
+    "reponse": "Il faut indiquer le salaire brut réel à 100%, même si on ne demande qu'une partie en subvention. Le système fera les calculs nécessaires."
+  },
+  {
+    "question": "Comment indiquer les remplacements de personnel ?",
+    "reponse": "Il faut utiliser le champ \"commentaires\" pour indiquer qui remplace qui. Par exemple : \"Sandrine Dupont est absente et elle est remplacée par Grace Hopper\"."
+  },
+  {
+    "question": "Comment encoder le salaire d'une personne en maladie de longue durée ?",
+    "reponse": "Pour le mois de salaire garanti, on encode le salaire de la personne absente. Ensuite, on encode le salaire de la personne remplaçante. Si la personne n'est pas remplacée, c'est un forfait partiel. Pour les statutaires qui restent payés pendant un an, on peut continuer à les subventionner."
+  },
+  {
+    "question": "Au niveau des puéricultrices, on est subventionnés pour un certain nombre de puéricultrices, mais nous en avons plus. D'habitude, je n'en cote pas le salaire de celles pour qui je ne demande pas de subsides. Est-ce correct ?",
+    "reponse": "C'est la bonne approche. Il faut sélectionner et indiquer le salaire brut uniquement pour les puéricultrices pour lesquelles vous demandez des subsides. Cependant, il est important de garder toutes les puéricultrices dans \"Mon équipe\", car ces informations peuvent être utiles en cas de changements futurs où certaines pourraient devenir subventionnées."
+  },
+  {
+    "question": "Que signifie le coefficient d'un remplacement personnel dans le récapitulatif ?",
+    "reponse": "Le coefficient est une majoration de 2,73% appliquée aux forfaits pour couvrir les frais de remplacement du personnel. Bien qu'il apparaisse en négatif sur les récapitulatifs, c'est en réalité un montant perçu en plus. Citation : \"Donc le coefficient, en fait, c'est quand on calcule les forfaits, on le majeure de 2,71%. C'est un petit pourcentage supplémentaire qui vous permet de pallier à tous les remplacements que vous devez faire dans votre milieu d'accueil.\""
+  },
+  {
+    "question": "Comment encoder le salaire brut pour une directrice qui est subventionnée à 50% en tant que direction et 50% en PMS ?",
+    "reponse": "Il faut encoder 100% du salaire brut dans chaque partie (direction et PMS) et demander 50% de subvention pour chaque."
+  },
+  {
+    "question": "Faut-il inclure l'allocation de résidence dans le salaire brut ?",
+    "reponse": "Il est préférable de ne pas inclure l'allocation de résidence ou de foyer dans le salaire brut pour éviter des variations qui pourraient impacter le calcul du forfait."
+  },
+  {
+    "question": "Faut-il inclure l'allocation spéciale (revalorisation pour le personnel de puériculture) dans le salaire brut ?",
+    "reponse": "Oui, l'allocation spéciale peut être incluse dans le salaire brut si elle est versée mensuellement de façon régulière."
+  },
+  {
+    "question": "Comment encoder un enfant qui prend congé pendant un mois ?",
+    "reponse": "S'il est en congé et que c'est prévu, il ne faut pas l'encoder du tout."
+  },
+  {
+    "question": "Lorsqu'un enfant est en congé ou en certificat médical, la structure peut-elle avoir une compensation lors du calcul des subsides ?",
+    "reponse": "Non, il n'y a pas de compensation pour les absences justifiées comme les congés ou les certificats médicaux. Seules les absences injustifiées peuvent être facturées aux parents."
+  },
+  {
+    "question": "Les absences justifiées des enfants (congés, certificats médicaux) interviennent-elles dans le calcul du taux de présence ?",
+    "reponse": "Oui, les absences justifiées sont prises en compte dans le calcul du taux d'occupation, ainsi que le volume prévu dans le contrat d'accueil et les absences injustifiées."
+  },
+  {
+    "question": "Comment gérer les modifications de PFP avec effet rétroactif sur plusieurs trimestres ?",
+    "reponse": "Il faut contacter le gestionnaire de subsides qui fera une complémentaire ou annulera la demande pour modification."
+  },
+  {
+    "question": "Comment va se passer l'encodage des 40 jours de congé à partir de 2025 ?",
+    "reponse": "Le système est en cours d'adaptation."
+  },
+  {
+    "question": "Est-il possible d'avoir un warning sur le taux d'encadrement lors de l'encodage ?",
+    "reponse": "Le warning, il est possible. A développer."
+  },
+  {
+    "question": "Les séances éducatives sont-elles pour tous les niveaux de subvention ?",
+    "reponse": "Oui, les séances éducatives concernent tous les niveaux de subvention, y compris le niveau 1 (subside de base)."
+  },
+  {
+    "question": "Comment fonctionne le calcul pour les bénéficiaires du statut BIM (Bénéficiaire de l'Intervention Majorée) ?",
+    "reponse": "Pour les milieux d'accueil soumis à la rétrocession (PFP moyenne supérieure à 17,30€), un montant compensatoire est calculé. Les journées BIM sont encodées à 0€ dans les présences. L'ONE calcule ensuite une PFP fictive en remplaçant les PFP à 0 des présences BIM par un montant équivalent à la PFP minimum garantie de 2022 (12,03€ par jour). Pour les familles monoparentales avec PFP réduite à 70%, on les considère à 100%. Une rétrocession fictive est calculée sur cette base, puis on fait la différence entre la PFP fictive et la PFP réellement perçue, ainsi qu'entre la rétrocession fictive et la rétrocession réellement donnée. Le résultat est le montant compensatoire.",
+    "citation": "Donc, on met comme s'ils avaient payé une PFP de 12,03€ par jour, et les familles monoparentales qui ont eu la PFP réduite à 70%, on les met à 100%. Donc, en fait, on fait une PFP fictive qui reflète ce que vous auriez peut-être perçu si les deux mesures n'avaient pas eu lieu."
+  },
+  {
+    "question": "Comment sont traitées les absences justifiées ou injustifiées pour les bénéficiaires du statut BIM ?",
+    "reponse": "Les absences sont prises en compte dans le système de calcul du montant compensatoire. Si vous facturez une absence injustifiée à une personne sous statut BIM, l'ONE la déduira car elle fera partie de votre PFP réellement perçue. Si vous ne facturez pas les absences injustifiées, le montant compensatoire sera plus élevé. Si vous les facturez, le montant compensatoire diminuera, mais vous aurez perçu cette PFP. À partir du 1er janvier, il ne sera plus possible de facturer les absences injustifiées pour les BIM dans le nouveau système de calcul."
+  },
+  {
+    "question": "Le calcul pour les BIM vaut-il pour les enquêtes sociales ?",
+    "reponse": "Non, le calcul pour les BIM ne s'applique pas aux enquêtes sociales. Les enquêtes sociales sont une dérogation à l'application de la participation financière parentale et il n'y a pas de compensation pour cela. Le système de compensation s'applique uniquement aux bénéficiaires du statut BIM."
+  },
+  {
+    "question": "Est-ce que les frais de déplacement pour la PMS incluent ceux faits par la directrice, qui est aussi assistante sociale, ou uniquement ceux de la PMS telle que remplie dans les subsides ?",
+    "reponse": "Les frais de déplacement concernent uniquement le personnel PMS tel que renseigné dans les subsides, dans ce cas l'infirmière. Uniquement pour la PMS."
+  },
+  {
+    "question": "Quand on a un pouvoir organisateur qui nous rembourse déjà nos frais de déplacement PMS, comment cela fonctionne-t-il avec le forfait proposé par l'ONE ?",
+    "reponse": "Si votre pouvoir organisateur vous rembourse déjà des frais de déplacement, cela est considéré comme une forme de remboursement. Le forfait proposé par l'ONE sert à rembourser le pouvoir organisateur pour ces frais. Il n'y a pas besoin de choisir entre les deux, le forfait de l'ONE vient compenser les frais déjà remboursés par le pouvoir organisateur donc, si votre pouvoir organisateur vous donne déjà des frais de déplacement, pour lui, c'est une forme de remboursement."
+  },
+  {
+    "question": "Concernant les frais de déplacement du personnel social, s'agit-il des frais domicile-travail ou des déplacements en mission ?",
+    "reponse": "Il s'agit des frais de déplacement en mission pour les besoins de la crèche, pas des frais domicile-travail. Le forfait est le suivant : 66,93 € pour 1 ETP (50,20€ pour 3/4 temps, 33,47€ pour 1/2 temps, 16,73€ pour un 1/4 temps) en fonction de la répartition PMS."
+  },
+  {
+    "question": "Comment encoder les frais de déplacement du personnel social ?",
+    "reponse": "Il faut les encoder dans la rubrique \"frais de déplacement personnel social\". C'est un forfait basé sur le temps de travail subventionné."
+  },
+  {
+    "question": "Faut-il joindre un justificatif pour les frais de déplacement du personnel social ?",
+    "reponse": "Il faut compléter un formulaire 101 avec le montant forfaitaire, signé par le PO. Ce formulaire n'est pas à joindre à la demande mais doit être conservé en cas de contrôle."
+  },
+  {
+    "question": "Les frais de déplacement du personnel social concernent-ils uniquement le PMS ou aussi la direction ?",
+    "reponse": "Ces frais concernent uniquement le personnel Psycho Médico Social (PMS), pas la direction."
+  },
+  {
+    "question": "Les séances éducatives sont-elles uniquement celles animées par le médecin ?",
+    "reponse": "Non, les séances éducatives peuvent inclure d'autres activités comme l'éveil musical. Par contre, les séances collectives à l'attention des parents sont exclusivement celles organisées par le médecin, par exemple pour une séance d'information sur un cas de coqueluche dans le milieu d'accueil."
+  },
+  {
+    "question": "Peut-on encoder une séance éducative comme l'accueil d'un spectacle au sein de la crèche ?",
+    "reponse": "Oui, accueillir un spectacle au sein de la crèche peut rentrer dans une séance éducative."
+  },
+  {
+    "question": "Est-ce que l'accueil collectif des parents d'un nouveau groupe de bébés entrants est considéré comme une séance d'activité collective à l'intention des parents ?",
+    "reponse": "Non, les séances collectives à l'attention des parents visent exclusivement ce qui est d'ordre médical, organisé par un médecin."
+  },
+  {
+    "question": "L'éveil musical peut-il faire partie des séances éducatives subventionnées ?",
+    "reponse": "A priori oui, car cela a une portée pédagogique. Cependant, les détails sur ce qui est précisément couvert et les montants doivent encore être clarifiés en interne par l'ONE.",
+    "citation": "On va, à mon avis, retravailler ça en interne et revenir vers vous avec peut-être une communication plus généraliste qui mettra pour chaque item ce qui est recevable ou pas."
+  },
+  {
+    "question": "Comment encoder les séances de dépistage visuel avec l'orthoptiste ?",
+    "reponse": "Il n'y a pas de catégorie spécifique pour cela. L'ONE envisage de créer une nouvelle ligne pour ce type de consultation."
+  },
+  {
+    "question": "Y a-t-il un subside particulier pour le suivi médical renforcé de certains enfants (à besoins spécifiques par exemple) ?",
+    "reponse": "Il n'y a pas de subside majoré, mais le quota d'heures annuel est revu en fonction du suivi médical renforcé dans le milieu d'accueil."
+  },
+  {
+    "question": "Faut-il justifier les séances éducatives par des factures ?",
+    "reponse": "Oui, il faut fournir une facture pour justifier les séances éducatives."
+  },
+  {
+    "question": "Les séances d'éveil musical sont-elles prises en charge entièrement (coût de la séance + frais de déplacement) ?",
+    "reponse": "L'ONE est encore en train de définir précisément ce qui peut être pris en charge et dans quelles limites pour les séances éducatives. Une communication plus claire sera faite ultérieurement."
+  },
+  {
+    "question": "À qui doit-on faire la demande concernant l'autorisation pour les séances éducatives ?",
+    "reponse": "Il faut faire la demande à votre gestionnaire de subsides, ou à David Martinez si le gestionnaire n'est pas disponible."
+  },
+  {
+    "question": "Le petit matériel (11,16€) est-il par mois ou par trimestre ?",
+    "reponse": "C'est par trimestre, et peut être doublé pour les crèches de 60 places et plus."
+  },
+  {
+    "question": "Faut-il une facture pour les 11,16€ de petit matériel ?",
+    "reponse": "Non, ce montant peut être demandé sans facture. (Demander l’accord avant ! le Ma doit faire la demande avant)"
+  },
+  {
+    "question": "Pour quels type de frais faut-il une facturation ?",
+    "reponse": "Les factures ne concernent uniquement le frigo, éther, alcool dénaturé, puis le thermomètre, balance."
+  },
+  {
+    "question": "Quels types de frais peut-on introduire ?",
+    "reponse": "Vous pouvez introduire comme frais si vous achetez un frigo, de l’éther, de l’alcool dénaturé et le thermomètre, balance."
+  },
+  {
+    "question": "La convention du médecin doit-elle être introduite une seule fois si c'est toujours le même médecin ?",
+    "reponse": "Oui, la convention du médecin ne doit être introduite qu'une seule fois. Une fois que le médecin est validé, vous le retrouverez dans la liste sans problème. L'introduction d'une nouvelle convention n'est nécessaire que pour un tout nouveau médecin avec lequel vous n'avez pas encore travaillé."
+  },
+  {
+    "question": "Peut-on encoder une date de fin de collaboration pour un médecin ?",
+    "reponse": "Oui, il est possible de mettre une date de fin de collaboration pour un médecin."
+  },
+  {
+    "question": "Le médecin peut-il être rémunéré à hauteur du forfait pour consultation médicale quand il délivre une séance collective à l'intention des parents ?",
+    "reponse": "Non, c'est un tarif différent pour les séances collectives à l'intention des parents."
+  },
+  {
+    "question": "Y a-t-il un minimum de temps à renseigner pour les visites médicales ?",
+    "reponse": "Le minimum est d'une heure de consultation, même si le médecin reste moins longtemps."
+  },
+  {
+    "question": "Les absences à indiquer dans mon équipe sont-elles les absences de plus d'un mois ou bien toutes les absences ?",
+    "reponse": "Idéalement, il faut encoder toutes les absences dans 'Mon équipe'. C'est particulièrement important pour le calcul du subside de revalorisation, car en fonction du motif d'absence, une proratisation est effectuée. Pour les certificats médicaux, ceux de moins de 30 jours n'ont pas besoin d'être joints, mais pour les absences de plus de 30 jours, le certificat médical doit être attaché à l'encodage."
+  },
+  {
+    "question": "Faut-il encoder les absences de quelques jours ?",
+    "reponse": "Il faut encoder les absences à partir de 5 jours, puisque les certificats médicaux sont demandés à partir de 5 jours d'absence. Cependant, les certificats médicaux ne sont requis qu'à partir de 30 jours d'absence."
+  },
+  {
+    "question": "Faut-il encoder les absences de moins de 30 jours ?",
+    "reponse": "Il faut encoder les absences qui impactent le forfait, comme les congés sans solde. Les absences pour maladie de moins de 30 jours ne doivent pas obligatoirement être encodées."
+  },
+  {
+    "question": "Si on indique une maladie de moins de 30 jours dans mon équipe, cela a-t-il un impact sur le calcul des subsides ?",
+    "reponse": "Non, cela n'a pas d'impact sur le calcul des subsides pour une maladie de moins de 30 jours."
+  },
+  {
+    "question": "Est-ce qu'on doit encoder les IFAPM (stagiaires) ?",
+    "reponse": "Oui, si elle rentre dans la norme d'encadrement, il faut l'encoder dans mon équipe."
+  },
+  {
+    "question": "Y a-t-il un projet de faire la même formation pour l'encodage de 'Mon équipe' ?",
+    "reponse": "Cette demande a été faite plusieurs fois et a été transmise à la responsable de 'Mon équipe'. Elle prend en charge ce point et devrait revenir vers vous prochainement pour organiser une formation similaire sur l'encodage dans 'Mon équipe'."
+  },
+  {
+    "question": "Est-ce que les journées pédagogiques entrent dans les 220 jours d'ouverture ?",
+    "reponse": "Oui, les journées pédagogiques sont comprises dans les jours d'ouverture, elles sont assimilées."
+  },
+  {
+    "question": "Est-ce que les jours de grève du personnel sont assimilés à des journées de fermeture ?",
+    "reponse": "Oui, si c’est une fermeture collective."
+  },
+  {
+    "question": "Les journées pédagogiques et journées de formation d'équipe sont-elles considérées de la même façon pour comptabiliser les jours d'ouverture ?",
+    "reponse": "Oui, les journées pédagogiques et les journées de formation d'équipe sont considérées de la même façon."
+  },
+  {
+    "question": "Concernant les 40jours, comment fonctionner avec les enfants à horaires variables ?",
+    "reponse": "Cela sera détaillé dans la circulaire à venir."
+  },
+  {
+    "question": "Comment les parents peuvent-ils prévoir leurs vacances pour les deux années à venir dans les contrats d'accueil ?",
+    "reponse": "Il s'agit de prévoir un volume de congés annuel, pas des dates précises."
+  },
+  {
+    "question": "Si un parent demande un jour de congé la semaine précédente et que le milieu d'accueil est d'accord, comment l'encoder ?",
+    "reponse": "Ce n'est pas considéré comme une absence justifiée, mais comme faisant partie du quota de congés prévu dans le contrat."
+  },
+  {
+    "question": "Comment gérer les 40 jours de congé par rapport aux fermetures de la crèche ?",
+    "reponse": "Maximum 10 jours de fermeture peuvent être déduits du quota de 40 jours. Au-delà, les jours de fermeture ne sont pas facturés mais ne réduisent pas le quota."
+  },
+  {
+    "question": "Faut-il encoder les 30 jours de congé prévus au contrat comme des absences justifiées ?",
+    "reponse": "Non, tant que le quota n'est pas épuisé, on n'encode rien du tout dans la demande de subsides."
+  }
+]

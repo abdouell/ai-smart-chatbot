@@ -1,0 +1,239 @@
+<div class="dashboard-container">
+  <h1>Feedback Dashboard</h1>
+
+  <div *ngIf="loading" class="loading">
+    Loading messages...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <!-- Statistics Section -->
+  <div class="dashboard-section stats-section">
+    <h2>Statistics Overview</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">{{ stats.totalMessages }}</div>
+        <div class="stat-label">Total Messages</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{{ stats.messagesWithFeedback }}</div>
+        <div class="stat-label">Messages with Feedback</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{{ stats.positivePercentage }}%</div>
+        <div class="stat-label">Positive Feedback</div>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="stats.positivePercentage"></div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{{ stats.negativePercentage }}%</div>
+        <div class="stat-label">Negative Feedback</div>
+        <div class="progress-bar">
+          <div class="progress negative" [style.width.%]="stats.negativePercentage"></div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{{ stats.onTopicPercentage }}%</div>
+        <div class="stat-label">On Topic</div>
+        <div class="progress-bar">
+          <div class="progress on-topic" [style.width.%]="stats.onTopicPercentage"></div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{{ stats.offTopicPercentage }}%</div>
+        <div class="stat-label">Off Topic</div>
+        <div class="progress-bar">
+          <div class="progress off-topic" [style.width.%]="stats.offTopicPercentage"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Section -->
+  <div class="dashboard-section filter-section">
+    <h2>Filters</h2>
+    <div class="filter-controls">
+      <div class="filter-row">
+        <div class="filter-group">
+          <label for="filterText">Search:</label>
+          <input
+            type="text"
+            id="filterText"
+            [(ngModel)]="filterText"
+            placeholder="Search in questions, responses, or feedback"
+            (input)="applyFilters(); applyFiltersFeedback()">
+        </div>
+
+        <div class="filter-group">
+          <label for="filterDateFrom">From Date:</label>
+          <input
+            type="date"
+            id="filterDateFrom"
+            [(ngModel)]="filterDateFrom"
+            (change)="applyFilters(); applyFiltersFeedback()">
+        </div>
+
+        <div class="filter-group">
+          <label for="filterDateTo">To Date:</label>
+          <input
+            type="date"
+            id="filterDateTo"
+            [(ngModel)]="filterDateTo"
+            (change)="applyFilters(); applyFiltersFeedback()">
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <div class="filter-group">
+          <label for="filterFeedbackType">Feedback Type:</label>
+          <select
+            id="filterFeedbackType"
+            [(ngModel)]="filterFeedbackType"
+            (change)="applyFilters(); applyFiltersFeedback()">
+            <option value="all">All Feedback</option>
+            <option value="positive">Positive Only</option>
+            <option value="negative">Negative Only</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterTopicType">Topic Type:</label>
+          <select
+            id="filterTopicType"
+            [(ngModel)]="filterTopicType"
+            (change)="applyFilters(); applyFiltersFeedback()">
+            <option value="all">All Topics</option>
+            <option value="on-topic">On Topic Only</option>
+            <option value="off-topic">Off Topic Only</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <button class="reset-button" (click)="resetFilters()">Reset Filters</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Messages with Feedback Section -->
+  <div class="dashboard-section">
+    <h2>Messages with Feedback</h2>
+    <div *ngIf="messagesWithFeedback.length === 0" class="no-data">
+      No messages with feedback found.
+    </div>
+    <div *ngIf="messagesWithFeedback.length > 0" class="messages-grid">
+      <div class="message-card" *ngFor="let message of messagesWithFeedback">
+        <div class="message-header">
+          <span class="timestamp">{{ message.timestamp | date:'medium' }}</span>
+          <span class="feedback-badge" [ngClass]="{'positive': message.feedBackPositive, 'negative': !message.feedBackPositive}">
+            {{ message.feedBackPositive ? 'Positive' : 'Negative' }}
+          </span>
+        </div>
+        <div class="message-content">
+          <div class="question">
+            <strong>Question:</strong> {{ message.userQuestion }}
+          </div>
+          <div class="response">
+            <strong>Response:</strong> {{ message.reponse }}
+          </div>
+          <div class="feedback">
+            <strong>Feedback:</strong> {{ message.feedback }}
+          </div>
+        </div>
+        <div class="message-footer">
+          <span class="topic-badge" [ngClass]="{'off-topic': message.horsSujet}">
+            {{ message.horsSujet ? 'Off Topic' : 'On Topic' }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination for Messages with Feedback -->
+    <div *ngIf="totalPagesFeedback > 1" class="pagination">
+      <button
+        [disabled]="currentPageFeedback === 1"
+        (click)="setPageFeedback(currentPageFeedback - 1)"
+        class="page-button">
+        &laquo; Previous
+      </button>
+
+      <button
+        *ngFor="let page of getPages(totalPagesFeedback)"
+        [class.active]="page === currentPageFeedback"
+        (click)="setPageFeedback(page)"
+        class="page-button">
+        {{ page }}
+      </button>
+
+      <button
+        [disabled]="currentPageFeedback === totalPagesFeedback"
+        (click)="setPageFeedback(currentPageFeedback + 1)"
+        class="page-button">
+        Next &raquo;
+      </button>
+    </div>
+  </div>
+
+  <!-- All Messages Section -->
+  <div class="dashboard-section">
+    <h2>All Messages</h2>
+    <div *ngIf="messages.length === 0" class="no-data">
+      No messages found.
+    </div>
+    <div *ngIf="messages.length > 0" class="messages-grid">
+      <div class="message-card" *ngFor="let message of messages">
+        <div class="message-header">
+          <span class="timestamp">{{ message.timestamp | date:'medium' }}</span>
+          <span *ngIf="message.feedBackPositive !== null" class="feedback-badge"
+                [ngClass]="{'positive': message.feedBackPositive, 'negative': !message.feedBackPositive}">
+            {{ message.feedBackPositive ? 'Positive' : 'Negative' }}
+          </span>
+        </div>
+        <div class="message-content">
+          <div class="question">
+            <strong>Question:</strong> {{ message.userQuestion }}
+          </div>
+          <div class="response">
+            <strong>Response:</strong> {{ message.reponse }}
+          </div>
+          <div *ngIf="message.feedback" class="feedback">
+            <strong>Feedback:</strong> {{ message.feedback }}
+          </div>
+        </div>
+        <div class="message-footer">
+          <span class="topic-badge" [ngClass]="{'off-topic': message.horsSujet}">
+            {{ message.horsSujet ? 'Off Topic' : 'On Topic' }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination for All Messages -->
+    <div *ngIf="totalPages > 1" class="pagination">
+      <button
+        [disabled]="currentPage === 1"
+        (click)="setPage(currentPage - 1)"
+        class="page-button">
+        &laquo; Previous
+      </button>
+
+      <button
+        *ngFor="let page of getPages(totalPages)"
+        [class.active]="page === currentPage"
+        (click)="setPage(page)"
+        class="page-button">
+        {{ page }}
+      </button>
+
+      <button
+        [disabled]="currentPage === totalPages"
+        (click)="setPage(currentPage + 1)"
+        class="page-button">
+        Next &raquo;
+      </button>
+    </div>
+  </div>
+</div>
